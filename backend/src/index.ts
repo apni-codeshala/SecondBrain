@@ -11,10 +11,12 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "https://secondbrain-kappa.vercel.app/",
+    origin: "https://secondbrain-kappa.vercel.app",
+    methods: "GET,POST,PUT,DELETE,OPTIONS, PATCH",
     credentials: true,
   }),
 );
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api", apiRoutes);
