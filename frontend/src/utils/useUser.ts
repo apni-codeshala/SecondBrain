@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "./UserContext";
-import { useNavigate } from "react-router-dom";
 import axiosInstance from "../config/axiosInstance";
 
 const useUser = () => {
