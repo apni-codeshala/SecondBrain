@@ -9,10 +9,18 @@ import apiRoutes from "./routes/index";
 const app = express();
 dotenv.config();
 
+const allowedOrigins = ["https://secondbrain-kappa.vercel.app"];
+
 app.use(
   cors({
-    origin: "https://secondbrain-kappa.vercel.app",
-    methods: "GET,POST,PUT,DELETE,OPTIONS, PATCH",
+    origin: (origin, callback) => {
+      if (!origin) return;
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   }),
 );
