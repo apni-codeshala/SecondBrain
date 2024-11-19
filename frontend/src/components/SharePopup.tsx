@@ -28,7 +28,8 @@ export function SharePopup({ openModal, setOpenModal }: SharePopupProps) {
           const tempUser = { ...user, share: true };
           setUser(tempUser);
           setContentLink(
-            "http://localhost:5173/brain/" + response.data.link || "",
+            "https://backendsecond-brain.vercel.app/api/v1/" +
+              response.data.link || "",
           );
         } else {
           const tempUser = { ...user, share: false };
